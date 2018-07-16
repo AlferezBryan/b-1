@@ -1,5 +1,5 @@
 const Router = require('koa-router')
-const Employee = require('../../models/Employee')
+const Employee = require('../../models/staff/Employee')
 const koaJwt = require('koa-jwt')
 const router = new Router()
 
@@ -28,25 +28,8 @@ const children = [
   '/staff/employees',
   // '/posts',
   // '/post-categories',
-  ...[
-    '/form'
-  ].map(p => '/contact' + p),
-  ...[
-    '/natural-region',
-    '/region',
-    '/province',
-    '/district',
-    '/tourist-place'
-  ].map(p => '/basics' + p),
-  ...['/adventure-type',
-    '/adventure-module',
-    '/adventure',
-    '/lodging',
-    '/nightlife',
-    '/tickets',
-    '/restaurant'
-  ].map(p => '/business' + p),
-  '/account'
+  '/account',
+  '/contact/form'
 ]
 
 for (let r of children) {
