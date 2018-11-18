@@ -6,9 +6,6 @@ var employeeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  title: {
-    type: String
-  },
   auth: {
     type: authSchema,
     required: true

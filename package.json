@@ -1,13 +1,13 @@
 {
-  "name": "api-template",
+  "name": "balanz-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "tesisgg",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production PORT=6601 node index.js",
-    "dev": "cross-env NODE_ENV=development HOST=0.0.0.0 PORT=6601 nodemon --ignore ./storage"
+    "start": "cross-env NODE_ENV=production PORT=6600 node index.js",
+    "dev": "cross-env NODE_ENV=development HOST=0.0.0.0 PORT=6600 nodemon --ignore ./storage"
   },
-  "author": "",
+  "author": "bryan",
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^2.2.2",

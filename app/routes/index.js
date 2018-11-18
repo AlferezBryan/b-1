@@ -37,7 +37,7 @@ router.get('/', async ctx => {
   }
 })
 
-router.use('/site', ...require('./site'))
+// router.use('/site', ...require('./site'))
 router.use('/admin', ...require('./admin'))
 
 app.use(router.routes())
