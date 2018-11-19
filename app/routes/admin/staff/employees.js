@@ -7,6 +7,12 @@ router.get('/', async ctx => {
   ctx.body = await Employee.find({}, '-auth.password')
 })
 
+router.get('/:_id', async ctx => {
+  const form = await Form.findOne(ctx.params)
+  ctx.assert(form, 404)
+  ctx.body = form
+})
+
 // router.post('/', async ctx => {
 //   await Employee.create(ctx.request.body)
 //   ctx.body = { message: 'Creado' }

@@ -3,10 +3,9 @@ const bcrypt = require('bcryptjs')
 const regex = require('../../util/regex')
 
 var authSchema = new mongoose.Schema({
-  email: {
+  username: {
     type: String,
     required: true,
-    match: regex.email,
     index: true,
     unique: true,
     lowercase: true
@@ -14,7 +13,7 @@ var authSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minlength: 3
   }
 }, {
   _id: false

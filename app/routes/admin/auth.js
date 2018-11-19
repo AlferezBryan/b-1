@@ -13,7 +13,7 @@ module.exports = [
 
 async function login (ctx, next) {
   const body = ctx.request.body
-  const employee = await Employee.findOne({ 'auth.email': body.email })
+  const employee = await Employee.findOne({ 'auth.username': body.username })
   ctx.assert(employee, 401, 'Auth failed! (Employee not found)')
   const match = await employee.auth.comparePassword(body.password)
   ctx.assert(match, 401, 'Auth failed! Wrong password')
