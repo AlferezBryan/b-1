@@ -17,39 +17,51 @@ var employeeSchema = new mongoose.Schema({
   },
   height: {
     type: String,
-    deafult: ''
+    default: ''
+  },
+  gender: {
+    type: String,
+    default: ''
   },
   width: {
     type: String,
-    deafult: ''
+    default: ''
   },
   style: {
     type: String,
-    deafult: ''
+    default: ''
   },
   age: {
     type: String,
-    deafult: ''
+    default: ''
   },
   illness1: {
     type: Boolean,
-    deafult: false
+    default: false
   },
   illness2: {
     type: Boolean,
-    deafult: false
+    default: false
   },
   illness3: {
     type: Boolean,
-    deafult: false
+    default: false
   },
   illness4: {
     type: Boolean,
-    deafult: false
+    default: false
   },
   diet: {
     type: String,
-    deafult: ''
+    default: ''
+  },
+  tmb: {
+    type: String,
+    default: ''
+  },
+  imc: {
+    type: String,
+    default: ''
   }
 }, {
   toJSON: { virtuals: true }

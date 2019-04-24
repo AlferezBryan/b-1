@@ -1,5 +1,6 @@
 const Router = require('koa-router')
 const Employee = require('../../../models/staff/Employee')
+const _ = require('lodash')
 
 const router = new Router()
 
@@ -19,9 +20,15 @@ router.get('/:_id', async ctx => {
 // })
 
 router.put('/:_id', async ctx => {
-  const employee = await Employee.findOne(ctx.params)
-  ctx.assert(employee, 404)
+  const body = _.pick(ctx.request.body, ['age', 'gender', 'height', 'width', 'name', 'style', 'illness1', 'illness2', 'illness3', 'tmb', 'imc'])
+  const { employee } = ctx.state
+  _.merge(employee, body)
   await employee.save()
+
+  // const employee = await Employee.findOne(ctx.params)
+  // ctx.assert(employee, 404)
+  // await employee.save()
+  console.log(employee);
   ctx.body = { message: 'Actualizado!' }
 })
 
