@@ -28,8 +28,7 @@ const children = [
   '/staff/employees',
   // '/posts',
   // '/post-categories',
-  '/account',
-  '/contact/form'
+  '/account'
 ]
 
 for (let r of children) {
