@@ -1,5 +1,6 @@
 const Router = require('koa-router')
 const Employee = require('../../../models/staff/Employee')
+const Status = require('../../../models/staff/Status')
 const _ = require('lodash')
 
 const router = new Router()
@@ -9,7 +10,7 @@ router.get('/', async ctx => {
 })
 
 router.get('/:_id', async ctx => {
-  const form = await Form.findOne(ctx.params)
+  const form = await Employee.findOne(ctx.params)
   ctx.assert(form, 404)
   ctx.body = form
 })
@@ -20,15 +21,28 @@ router.get('/:_id', async ctx => {
 // })
 
 router.put('/:_id', async ctx => {
-  const body = _.pick(ctx.request.body, ['age', 'gender', 'height', 'width', 'name', 'style', 'illness1', 'illness2', 'illness3', 'tmb', 'imc'])
-  const { employee } = ctx.state
-  _.merge(employee, body)
+  const employee = await Employee.findOne(ctx.params)
+  const body1 = _.pick(ctx.request.body, ['name', 'gender'])
+  _.merge(employee, body1)
   await employee.save()
+  const body2 = _.pick(ctx.request.body, ['height', 'age', 'width', 'style', 'illness1', 'illness2', 'illness3', 'illness4', 'tmb', 'imc'])
+  body2.userID = ctx.params._id
+  console.log(body2);
+  await Status.create(body2)
+  const xd = await Status.findOne({"userID": ctx.params._id})
+  console.log(xd);
+  //   ctx.body = { message: 'Creado' }
+
+  // console.log(employee);
+  // console.log(body);
+  // const { employee } = ctx.state
+  // _.merge(employee, body)
+  // await employee.save()
 
   // const employee = await Employee.findOne(ctx.params)
   // ctx.assert(employee, 404)
   // await employee.save()
-  console.log(employee);
+  // console.log(employee);
   ctx.body = { message: 'Actualizado!' }
 })
 

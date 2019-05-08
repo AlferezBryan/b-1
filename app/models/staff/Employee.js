@@ -15,55 +15,12 @@ var employeeSchema = new mongoose.Schema({
     required: true,
     default: 'https://placehold.it/400'
   },
-  height: {
-    type: String,
-    default: ''
-  },
   gender: {
-    type: String,
-    default: ''
-  },
-  width: {
-    type: String,
-    default: ''
-  },
-  style: {
-    type: String,
-    default: ''
-  },
-  age: {
-    type: String,
-    default: ''
-  },
-  illness1: {
-    type: Boolean,
-    default: false
-  },
-  illness2: {
-    type: Boolean,
-    default: false
-  },
-  illness3: {
-    type: Boolean,
-    default: false
-  },
-  illness4: {
-    type: Boolean,
-    default: false
-  },
-  diet: {
-    type: String,
-    default: ''
-  },
-  tmb: {
-    type: String,
-    default: ''
-  },
-  imc: {
     type: String,
     default: ''
   }
 }, {
+  timestamps: true,
   toJSON: { virtuals: true }
 })
 

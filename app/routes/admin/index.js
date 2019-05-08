@@ -26,6 +26,7 @@ router.use(async (ctx, next) => {
 const children = [
   // '/courses',
   '/staff/employees',
+  '/staff/status',
   // '/posts',
   // '/post-categories',
   '/account'
