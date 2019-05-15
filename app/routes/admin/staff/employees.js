@@ -46,6 +46,15 @@ router.put('/:_id', async ctx => {
   ctx.body = { message: 'Actualizado!' }
 })
 
+router.put('/updateDiet/:id', async ctx => {
+  const status = await Status.findOne({"userID": ctx.params.id}).sort({createdAt:-1})
+  const body = _.pick(ctx.request.body, ['diet'])
+  _.merge(status, body)
+  await status.save()
+  console.log(status);
+  ctx.body = { message: 'Actualizado!' }
+})
+
 router.del('/:_id', async ctx => {
   const { n } = await Employee.remove(ctx.params)
   ctx.assert(n, 404)
